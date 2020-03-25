@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import "./index.css";
 import Main from './Main';
 import * as serviceWorker from './serviceWorker';
 
