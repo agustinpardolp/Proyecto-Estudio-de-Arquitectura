@@ -6,7 +6,7 @@
 
 @font-face{
     font-family:'Open Sans' !important;
-    src:url('/fonts/OpenSans-light.ttf') format('truetype')
+    src:url('../fonts/OpenSans-Light.ttf') format('truetype')
 }
 /* @font-face{
     font-family:robotoregular;

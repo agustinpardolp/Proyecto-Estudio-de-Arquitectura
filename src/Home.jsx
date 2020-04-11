@@ -1,32 +1,48 @@
 import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { Carousel } from "react-bootstrap";
-import AppProvider, { AppContext } from "./context";
+import { AppContext } from "./context";
 import Detail from "./Detail";
 
 const StyledDiv = styled.div`
   background: ${props => `url("/img/${props.img}") no-repeat fixed center;`};
+  background-position: center;
   object-fit: cover;
   object-position: center center;
 `;
 
 const StyledDivContainer = styled.div`
- /* background: ${props =>
-   `url("/assets/img/img/${props.img}") no-repeat center;`};
-  background-size: cover;
-  background-position: center;
-  background-color: black;
-  background-size: cover; */
+    /* height:100%; */
 `;
 const StyledItem = styled.div`
   text-align: center;
-  height: 100%;
+  /* height: 100%; */
   background-color: white;
   img {
-    width: 100%;
-    max-height: 100%;
-    padding-bottom: 2%;
+     /* width: 100%;  */
+    height: -webkit-fill-available; 
+    object-fit: contain;
+    /* padding-bottom: 2%; */
+    /* height:100%; */
   }
+  @media (max-width: 1199px) {
+
+    img {
+      width: 100%;
+    /* max-height: 100%; */
+    padding-bottom: 2%;
+    height:100%;
+  }
+  }
+`;
+
+const StyledCarousele = styled(Carousel)`
+visibility:${props => props.showInfo? "hidden":"visible"};
+`;
+
+const StyledArticle = styled.article`
+
+height: 78vh;
 `;
 
 function Home(props) {
@@ -38,7 +54,6 @@ function Home(props) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(null);
   const [showInfo, setShowInfo] = useState(false);
-
   const {
     location: { pathname: pathname }
   } = props;
@@ -59,7 +74,6 @@ function Home(props) {
   const handleSelect = (selectedIndex, e, direction) => {
     setIndex(selectedIndex);
 
-    console.log("direction", direction, selectedIndex);
     if (counter !== imagenes.length) {
       setCounter(selectedIndex + 1);
     } else if (counter === imagenes.length) {
@@ -74,46 +88,62 @@ function Home(props) {
   return (
     <>
       {imagenes && imagenes.length ? (
-        <div id="primary" className="content-area">
-          <main id="main" className="site-main" role="main">
-            <article
-              id="post-2179"
-              className="post-2179 post type-post status-publish format-standard hentry category-non-classNamee"
+        <main id="main" className="site-main" role="main">
+            <StyledArticle
+              id="article"
+              className=""
             >
               <div className="entry-content">
-                <div className="row justify-content-center main-container">
-                  <div className="col-sm-5 main-container_col-images">
-                    <Carousel
+                {/* <div className="row justify-content-center main-container">
+                  <div className="col-sm-5 col-md-5 col-lg-5 main-container_col-images"> */}
+                    <StyledCarousele
+                      id = "carousele"
                       indicators={false}
                       activeIndex={index}
                       direction={direction}
                       onSelect={handleSelect}
                       slide={false}
                       interval={10000000000000}
+                      showInfo = {showInfo}
                     >
                       {imagenes &&
                         imagenes.map(imagen => {
                           return (
                             <Carousel.Item key={imagen.id}>
-                              <StyledDiv
+                               <StyledDivContainer>
+                                  <StyledItem >
+                                    <img src={`/img/${imagen.nombre}`} alt="" />
+                                </StyledItem>
+                                </StyledDivContainer>
+                              {/* <StyledDiv
                                 className="carousel-item active"
                                 img={imagen.nombre}
-                              ></StyledDiv>
+                              ></StyledDiv> */}
                             </Carousel.Item>
                           );
                         })}
-                    </Carousel>
-                  </div>
-                </div>
-                <Detail imagenes={imagenes} showInfo={showInfo} currentProyect = {currentProyect}/>
+                    </StyledCarousele>
+                  {/* </div>
+                </div> */}
+                <Detail
+                  imagenes={imagenes}
+                  showInfo={showInfo}
+                  currentProyect={currentProyect}
+                />
               </div>
               <div className="button-container">
-                <span className = "button-container_option-text-selector" onClick={openInfo}>Textos</span>
+                <span
+                  className="button-container_option-text-selector"
+                  onClick={openInfo}
+                >
+                  Textos
+                </span>
                 <a
                   className="button-container_option-selector"
                   onClick={openInfo}
-                > {console.log("curre", currentProyect)}
-                  <span >{currentProyect[0].nombre}</span>
+                >
+                  {" "}
+                  <span>{currentProyect[0].nombre}</span>
                 </a>
                 <div className="counter">
                   <span id="span-counter">
@@ -121,7 +151,7 @@ function Home(props) {
                   </span>
                 </div>
               </div>
-            </article>
+            </StyledArticle>
             <div className="images-container">
               {imagenes &&
                 imagenes.map(imagen => {
@@ -129,22 +159,24 @@ function Home(props) {
                     <div className="images-sub-container" key={imagen.id}>
                       <StyledDivContainer className="row">
                         <StyledItem className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          <img
-                            src={`/assets/img/img/${imagen.nombre}`}
-                            alt=""
-                          />
+                          <img src={`/img/${imagen.nombre}`} alt="" />
                         </StyledItem>
                       </StyledDivContainer>
                     </div>
                   );
                 })}
-              <Detail imagenes={imagenes} showInfo={true} />
+              <Detail
+                mobile
+                imagenes={imagenes}
+                showInfo={true}
+                currentProyect={currentProyect}
+              />
             </div>
           </main>
-        </div>
       ) : null}
     </>
   );
 }
 
 export default Home;
+// className="col-xs-12 col-sm-12 col-md-12 col-lg-12"

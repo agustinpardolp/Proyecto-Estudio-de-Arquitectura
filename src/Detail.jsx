@@ -4,30 +4,29 @@ import PropTypes from 'prop-types';
 
 
 const TextInfoContainer = styled.div`
-  height: 300px;
   display: flex;
+  position: ${props => props.mobile?null: "absolute"};
+  top: ${props => props.mobile? null: "1%"};
   visibility: ${props => props.visibility};
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 410px;
+  height: 65vh;
   @media (max-width: 1199px) {
     height: 50%;
   }
 `;
 
-export default function Detail({ imagenes, showInfo, currentProyect} ) {
-  // let proyecto;
-  // imagenes.length ? ({ proyecto } = imagenes[0]) : [];
-  console.log(imagenes, showInfo, currentProyect)
+export default function Detail({ showInfo, currentProyect, mobile} ) {
+
   return (
     <>
     {currentProyect && currentProyect.length ?
-      <TextInfoContainer visibility={showInfo ? "visible" : "hidden"}>
+      <TextInfoContainer visibility={showInfo ? "visible" : "hidden"} mobile = {mobile}>
         <div className="text-button-container_hidden-text">
           <div className="text-button-container_text-content" id="text-content">
             <p>
-              <strong>{currentProyect[0].nombre}</strong> &#8211; <em>{}</em>
+              <strong>{currentProyect[0].nombre}</strong>
               <br />
               <br />
               {currentProyect[0].descripcion}
@@ -38,6 +37,7 @@ export default function Detail({ imagenes, showInfo, currentProyect} ) {
             id="colum-options"
           >
             <ul>
+            <br />
               <li>
               <strong>OBRA</strong> &#8211; <em><strong>{currentProyect[0].nombre}</strong></em>
                 <br />

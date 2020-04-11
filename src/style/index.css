@@ -1,6 +1,10 @@
 /*--------------------------------------------------------------
 Normalize CSS
 --------------------------------------------------------------*/
+@font-face{
+  font-family:'Open Sans', sans-serif;
+  src:url('../fonts/ShadowsIntoLight-Regular.ttf') format('truetype')
+}
 :root {
   --fontVar: "Open Sans";
   --backgroundColor: white;
@@ -14,10 +18,14 @@ html {
   -ms-text-size-adjust: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  height: 100%;
 }
 
 body {
   margin: 0;
+  width: 100%;
+  height: 100%;
+  /* height: 100%; */
 }
 
 ul,
@@ -70,6 +78,9 @@ textarea {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
+}
+#root{
+  height: 100%;
 }
 
 h1,
@@ -239,7 +250,7 @@ div#expand {
 }
 #expand ul li {
   display: inline;
-  font-size: 12px;
+  font-size:  0.85rem;
   font-family: var(--fontVar)!important;
 }
 #expand ul li a {
@@ -286,11 +297,13 @@ article p {
   padding-right: 2%;
 }
 .button-container_option-selector > span {
-  font-size: 12px;
+  font-size:  0.85rem;
+  font-family: var(--fontVar);
 }
 .button-container_option-text-selector {
 
-  font-size: 11px;
+  font-size: 0.85rem;
+  font-family: var(--fontVar);
   color: var(--menuFontColor);
   width: 33%;
   text-align: center;
@@ -302,8 +315,9 @@ article p {
   justify-content: flex-end;
   padding-right: 6%;
   width: 33%;
-  font-size: 12px;
+  font-size: 0.85rem;
 }
+
 /*---------------------NavBar--------------*/
 
 .nav-links {
@@ -357,6 +371,7 @@ h1.entry-title {
 }
 .site-branding {
   text-align: center;
+  margin-bottom: 1%;
 }
 header#masthead a {
   position: relative;
@@ -385,6 +400,18 @@ header#masthead a {
 }
 .entry-content {
   margin: 0;
+  height: 85%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+}
+.entry-content-about {
+  margin: 0;
+  height: 85%;
+  position: relative;
+  justify-content: center;
+
 }
 .img-logo {
   width: 15%;
@@ -418,25 +445,26 @@ a.lelienprojets {
 }
 
 main#main.studio {
-  background-color: lightgray;
+  background-color:var(--backgroundColor);
 }
 .studio h1.entry-title {
   display: none;
 }
-.studio .entry-content {
+.studio .entry-content-about {
   width: 46%;
-  margin: 1% auto 0 auto;
-  padding-top: 0px;
+  margin: 0% auto 0 auto;
+  padding-top: 3%;
   padding-bottom: 10%;
 }
 .studio article {
   margin-bottom: 0;
 }
 .studio .intro {
-  font-size: 25px;
+  font-size: 12px;
   margin-bottom: 40px;
-  letter-spacing: 1px;
-  margin-top: 4%;
+  letter-spacing: 0px;
+  margin-top: 0;
+  line-height: 18px;
 }
 .studio .titres-studio {
   border-bottom: 3px solid #000;
@@ -444,7 +472,7 @@ main#main.studio {
   font-weight: bold;
   letter-spacing: 1px;
 }
-.studio .deux-colonnes {
+.studio .main-text-about {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
@@ -452,23 +480,30 @@ main#main.studio {
   -moz-column-gap: 20px; /* Firefox */
   column-gap: 20px;
   margin-bottom: 5vh;
+  font-size: 12px;
 }
 
 /*Estilo nuevo*/
-
+.site{
+  height: 100%;
+}
 .main-container {
   position: relative;
+}
+
+.site-main{
+
+  height: 75%;
 }
 
 .text-button-container_hidden-text {
   background: var(--backgroundColor);
   width: 100%;
-  height: 410px;
+  height: 61vh;
   position: relative;
   display: grid;
   grid-template-columns: 60% 40%;
   z-index: 10;
-  margin-top: 2%;
   padding: 2%;
 }
 #button-text-activate {
@@ -481,9 +516,8 @@ main#main.studio {
   width: 60%;
 }
 .button-container {
-  margin-top: 1%;
   display: flex;
-  width: 100%;
+  height:10%;
   width: 100%;
   justify-content: flex-end;
   align-items: center;
@@ -491,22 +525,37 @@ main#main.studio {
 
 .main-container_col-images {
   position: absolute !important;
-  margin-top: 1%;
+
+}
+.carousel{
+  /* height: 100%;
+  width: 83vw; */
 }
 .carousel_container {
   height: 380px;
   margin-top: 5%;
 }
-
+.carousel-inner {
+  height: 100%;
+}
 .carousel-inner .carousel-item {
-  width: 100%;
-  height: 385px;
-  -webkit-background-size: contain;
+  /* width: 100%;
+  height: 100%; */
+  /* -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
-  background-size: contain;
+  background-size: contain; */
 }
+.modal-body {
 
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.modal-img {
+ width: 90%;
+}
 /* texto hidden */
 
 .text-button-container_text-content {
@@ -519,7 +568,8 @@ main#main.studio {
   margin: 1px;
   margin-left: 30%;
   width: 75%;
-  font-size: 11px;
+  font-size: 0.70rem;
+  font-family: var(--fontVar);
 }
 
 .hidden-class {
@@ -528,14 +578,17 @@ main#main.studio {
 .text-button-container_colum-options {
   text-align: left;
   display: flex;
-  margin: 7%;
+  align-items: flex-start;
+  margin-top: 1%;
+  margin-left: 6%;
 }
 
 .text-button-container_colum-options li {
   list-style: none;
-  font-size: 11px;
+  font-size: 0.70rem;
   margin: 0;
   padding: 0;
+  font-family: var(--fontVar);
 }
 .text-button-container_colum-options ul {
   margin: 0;
@@ -547,11 +600,30 @@ main#main.studio {
   transition-duration: 1s;
 }
 
+.carousel-control-prev-icon{
+  /* background-image: url("/public/utils/left.png") */
+}
+
+#example-modal-sizes-title-sm{
+  color: var(--menuFontColor);
+  font-size: 14px;
+}
+
+.p1{
+font-family: var(--fontVar);
+}
+
 /* responsive */
 
-@media only screen and (max-width: 2400px) and (min-width: 1200px) {
+@media (max-width: 2900px) and (min-width: 1200px) {
   .images-container {
     display: none;
+  }
+  .row{
+    height: 100%;
+  }
+  .row > div, img {
+    height: 100%;
   }
 }
 @media (max-width: 1199px) {
@@ -560,14 +632,16 @@ main#main.studio {
   }
   .text-button-container_colum-options {
     width: 100%;
+    margin: 0;
   }
   .text-button-container_colum-options ul {
     margin-top: 12%;
     margin: 0;
     padding: 18px;
   }
-  article {
+  #article {
     display: none;
+    height: 100%;
   }
 
   .row {
@@ -580,7 +654,7 @@ main#main.studio {
     background: white;
     display: contents;
     width: 100%;
-    height: 410px;
+    height: 60vh;
     position: relative;
     z-index: 10;
   }
@@ -588,5 +662,12 @@ main#main.studio {
   .text-button-container_text-content > p {
     margin: 20px;
     width: 85%;
+  }
+  .studio .entry-content-about{
+    width: 75%;
+  }
+  .site-branding {
+    text-align: center;
+   
   }
 }
