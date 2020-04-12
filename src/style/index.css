@@ -16,7 +16,7 @@ Normalize CSS
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  overflow-y: scroll;
+  overflow-y: show;
   overflow-x: hidden;
   height: 100%;
 }
@@ -245,7 +245,7 @@ div#expand {
   margin: auto;
   padding: 0;
   margin-bottom: 2%;
-  line-height: 17px;
+  line-height: 1.4rem;
 }
 #expand ul li {
   display: inline;
@@ -399,11 +399,12 @@ header#masthead a {
 }
 .entry-content {
   margin: 0;
-  height: 85%;
+  height: 83%;
   position: relative;
   display: flex;
   justify-content: center;
-
+  align-items: center;
+  margin-bottom: 1%;
 }
 .entry-content-about {
   margin: 0;
@@ -498,7 +499,7 @@ main#main.studio {
 .text-button-container_hidden-text {
   background: var(--backgroundColor);
   width: 100%;
-  height: 70vh;
+  height: 68vh;
   position: relative;
   display: grid;
   grid-template-columns: 60% 40%;
@@ -642,6 +643,9 @@ font-family: var(--fontVar);
     display: none;
     height: 100%;
   }
+  .button-container {
+    display: none;
+  }
 
   .row {
     height: 100%;
@@ -671,13 +675,13 @@ font-family: var(--fontVar);
    
   }
   #expand ul {
-    width: 70vw;
+    width: 90vw;
     max-width: 1200px;
     text-align: center;
     margin: auto;
     padding: 0;
     margin-bottom: 1%;
-    line-height: 17px;
+    line-height: 1.4rem;
   }
   #expand ul li {
     display: inline;

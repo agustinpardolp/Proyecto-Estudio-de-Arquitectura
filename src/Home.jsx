@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { Carousel } from "react-bootstrap";
@@ -16,7 +17,8 @@ const StyledDivContainer = styled.div`
 `;
 const StyledItem = styled.div`
   text-align: center;
-  /* height: 100%; */
+  /* height: 62vh; */
+  width: 1200px;
   background-color: white;
   img {
      /* width: 100%;  */
@@ -38,10 +40,16 @@ const StyledItem = styled.div`
 
 const StyledCarousele = styled(Carousel)`
 visibility:${props => props.showInfo? "hidden":"visible"};
+&& a{
+  width:50%;
+  && span{
+    visibility:hidden;
+  }
+}
 `;
 
 const StyledArticle = styled.article`
-
+display: contents;
 height: 78vh;
 `;
 
@@ -52,7 +60,7 @@ function Home(props) {
   const [imagenes, setImagenes] = useState([]);
   const [counter, setCounter] = useState(1);
   const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(null);
+  const [direction] = useState(null);
   const [showInfo, setShowInfo] = useState(false);
   const {
     location: { pathname: pathname }
@@ -131,7 +139,9 @@ function Home(props) {
                   currentProyect={currentProyect}
                 />
               </div>
-              <div className="button-container">
+              
+            </StyledArticle>
+            <div className="button-container">
                 <span
                   className="button-container_option-text-selector"
                   onClick={openInfo}
@@ -151,7 +161,6 @@ function Home(props) {
                   </span>
                 </div>
               </div>
-            </StyledArticle>
             <div className="images-container">
               {imagenes &&
                 imagenes.map(imagen => {

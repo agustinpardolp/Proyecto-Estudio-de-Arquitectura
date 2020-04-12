@@ -13,11 +13,12 @@ const StyledLink = styled(Link)`
 
 const StyledImg = styled.img`
  width: 280px;
- margin-top: 1%;
+ /* margin-top: 1%; */
 `;
 const StyledNavBar = styled.div`
-  height: ${props => props.about?"6%":"22%"};
-  margin-bottom: 1%;
+  height: ${props => props.about?"6%":"19%"};
+  margin-bottom: 3%;
+  margin-top:1%;
   @media (max-width: 1199px) {
   height:auto;
   scroll-margin-bottom:1%;
