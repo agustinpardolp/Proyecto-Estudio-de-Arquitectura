@@ -414,7 +414,8 @@ export default class AppProvider extends Component {
             id: 25
           }
         ]
-      }
+      },
+      
     ],
   };
   /*IMP Siempre value es objeto, siempre el AppContext.Consume, recive una funcion, 

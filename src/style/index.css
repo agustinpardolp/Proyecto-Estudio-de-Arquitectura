@@ -2,11 +2,11 @@
 Normalize CSS
 --------------------------------------------------------------*/
 @font-face{
-  font-family:'Open Sans', sans-serif;
-  src:url('../fonts/ShadowsIntoLight-Regular.ttf') format('truetype')
+  /* font-family:'Open Sans', sans-serif; */
+  /* src:url('../fonts/ShadowsIntoLight-Regular.ttf') format('truetype') */
 }
 :root {
-  --fontVar: "Open Sans";
+  /* --fontVar: "Open Sans"; */
   --backgroundColor: white;
   --menuFontColor: #a4a4a4;
   --secondaryColorFont: rgb(56, 54, 53);
@@ -670,4 +670,25 @@ font-family: var(--fontVar);
     text-align: center;
    
   }
+  #expand ul {
+    width: 80vw;
+    max-width: 1200px;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 2%;
+    line-height: 17px;
+  }
 }
+@media screen and (max-width: 600px) {
+  #expand ul {
+    width: 90vw;
+    max-width: 1200px;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 2%;
+    line-height: 17px;
+  }
+}
+

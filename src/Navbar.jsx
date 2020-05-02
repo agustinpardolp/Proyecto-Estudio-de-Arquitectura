@@ -16,10 +16,7 @@ const StyledImg = styled.img`
  margin-top: 1%;
 `;
 const StyledNavBar = styled.div`
-  height: ${props => props.about?"6%":"22%"};
-  @media (max-width: 1199px) {
-  height:10%;
-}
+  position:sticky;
 `;
 
 function Navbar({ location}, ) {
@@ -29,7 +26,7 @@ function Navbar({ location}, ) {
 
   useEffect(() => {
     setLogo("marca");
-  });
+  }, []);
 
   return (
     <StyledNavBar about = {pathname === "/about"?true:false}>
