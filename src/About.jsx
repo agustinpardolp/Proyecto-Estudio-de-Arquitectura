@@ -37,10 +37,10 @@ function About() {
                 <p class="p1">Team</p>
               </div>
               <div class="main-text-about">
-                <p class="p1">
+                <p class="autor-content">
                   <strong>Gilles Delalex</strong>
                 </p>
-                <p class="p1">
+                <p class="p1 ">
                   Is a French architect. He studied architecture in Grenoble and
                   Montreal. He holds a Master in urban planning and a Doctorate
                   of Arts from Alvar Aalto University, Helsinki. He is currently
@@ -49,10 +49,10 @@ function About() {
                   has been a research fellow at the Liat Lab focusing on
                   modernity and infrastructures.
                 </p>
-                <p>
+                <p class="autor-content">
                   <strong>Yves Moreau</strong>
                 </p>
-                <p class="p1">
+                <p class="p1 autor-content">
                   Is a Dutch-Belgian architect. He studied at the Ecole des Arts
                   de Saint Luc in Brussels and graduated from Chalmers Teknista
                   Högskala, Göteborg. Between 2000 and 2001, he collaborated
